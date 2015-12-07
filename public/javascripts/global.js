@@ -3,8 +3,7 @@ var userListData = [];
 var eventListData = [];
 
 // DOM Ready =============================================================
-$(document).ready(function() {
-
+$(window).load(function() {
     // Populate the user table on initial page load
     populateUserTable();
     // Populate the event table on initial page load
@@ -23,12 +22,11 @@ $(document).ready(function() {
     $('#eventList table tbody').on('click', 'td a.linkshowevent', showEventInfo);
 
     // Add Event button click
-    //$('#btnAddEvent').on('click', addEvent);
-    $('#addEvent').on('submit', addEvent);
+    $('#btnAddEvent').on('click', addEvent2);
+    // $('#addEvent').on('submit', addEvent2);
 
     // Delete Event link click
-    $('#eventList table tbody').on('click', 'td a.linkdeleteevent', deleteEvent);
-
+    $('#eventList tbody').on('click', 'td a.linkdeleteevent', deleteEvent);
 });
 
 // Functions =============================================================
@@ -75,14 +73,14 @@ function populateEventTable() {
         // For each item in our JSON, add a table row and cells to the content string
         $.each(data, function(){
             tableContent += '<tr>';
-            tableContent += '<td><a href="#" class="linkshowuser" rel="' + this.eventname + '">' + this.eventname + '</a></td>';
-            tableContent += '<td>' + this.descriptionname + '</td>';
+            tableContent += '<td><a href="#" class="linkshowuser" rel="' + this.eventName + '">' + this.eventName + '</a></td>';
+            tableContent += '<td>' + this.description + '</td>';
             tableContent += '<td><a href="#" class="linkdeleteevent" rel="' + this._id + '">delete</a></td>';
             tableContent += '</tr>';
         });
 
         // Inject the whole content string into our existing HTML table
-        $('#eventList table tbody').html(tableContent);
+        $('#eventList tbody').html(tableContent);
     });
 }
 
@@ -227,10 +225,8 @@ function showEventInfo(event) {
 }
 
 // Add User
-function addEvent(event) {
-    console.log('poo')
+function addEvent2(event) {
     event.preventDefault();
-    event.stopPropagation();
 
     // Super basic validation - increase errorCount variable if any fields are blank
     var errorCount = 0;
@@ -263,13 +259,11 @@ function addEvent(event) {
 
                 // Update the table
                 populateEventTable();
-
             }
             else {
-
+                console.log(response.msg)
                 // If something goes wrong, alert the error message that our service returned
                 alert('Error: ' + response.msg);
-
             }
         });
     }
@@ -284,7 +278,6 @@ function addEvent(event) {
 function deleteEvent(event) {
 
     event.preventDefault();
-
     // Pop up a confirmation dialog
     var confirmation = confirm('Are you sure you want to delete this event?');
 
