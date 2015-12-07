@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 // Database
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/kidstagram');
+var db = monk('mongodb://heroku_5bjbrfwf:fq6hhq6nmife02be6kg0m7qocp@ds031922.mongolab.com:31922/heroku_5bjbrfwf');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
