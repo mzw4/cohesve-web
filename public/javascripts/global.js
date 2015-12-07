@@ -23,7 +23,8 @@ $(document).ready(function() {
     $('#eventList table tbody').on('click', 'td a.linkshowevent', showEventInfo);
 
     // Add Event button click
-    $('#btnAddEvent').on('click', addEvent);
+    //$('#btnAddEvent').on('click', addEvent);
+    $('#addEvent').on('submit', addEvent);
 
     // Delete Event link click
     $('#eventList table tbody').on('click', 'td a.linkdeleteevent', deleteEvent);
@@ -69,12 +70,13 @@ function populateEventTable() {
 
         // Stick our user data array into a userlist variable in the global object
         eventListData = data;
+        console.log(data);
 
         // For each item in our JSON, add a table row and cells to the content string
         $.each(data, function(){
             tableContent += '<tr>';
-            tableContent += '<td><a href="#" class="linkshowuser" rel="' + this.event + '">' + this.event + '</a></td>';
-            tableContent += '<td>' + this.description + '</td>';
+            tableContent += '<td><a href="#" class="linkshowuser" rel="' + this.eventname + '">' + this.eventname + '</a></td>';
+            tableContent += '<td>' + this.descriptionname + '</td>';
             tableContent += '<td><a href="#" class="linkdeleteevent" rel="' + this._id + '">delete</a></td>';
             tableContent += '</tr>';
         });
@@ -226,7 +228,9 @@ function showEventInfo(event) {
 
 // Add User
 function addEvent(event) {
+    console.log('poo')
     event.preventDefault();
+    event.stopPropagation();
 
     // Super basic validation - increase errorCount variable if any fields are blank
     var errorCount = 0;

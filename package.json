@@ -14,7 +14,8 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "mongodb": "~2.0.33",
-    "monk": "~1.0.1"
+    "monk": "^1.0.1",
+    "monk": "https://github.com/vccabral/monk.git"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
