@@ -44,7 +44,7 @@ function populateTable() {
         // Inject the whole content string into our existing HTML table
         $('#userList table tbody').html(tableContent);
     });
-};
+}
 
 // Show User Info
 function showUserInfo(event) {
@@ -67,7 +67,7 @@ function showUserInfo(event) {
     $('#userInfoGender').text(thisUserObject.gender);
     $('#userInfoLocation').text(thisUserObject.location);
 
-};
+}
 
 // Add User
 function addUser(event) {
@@ -90,7 +90,7 @@ function addUser(event) {
             'age': $('#addUser fieldset input#inputUserAge').val(),
             'location': $('#addUser fieldset input#inputUserLocation').val(),
             'gender': $('#addUser fieldset input#inputUserGender').val()
-        }
+        };
 
         // Use AJAX to post the object to our adduser service
         $.ajax({
@@ -123,7 +123,7 @@ function addUser(event) {
         alert('Please fill in all fields');
         return false;
     }
-};
+}
 
 // Delete User
 function deleteUser(event) {
@@ -162,4 +162,4 @@ function deleteUser(event) {
 
     }
 
-};
+}
