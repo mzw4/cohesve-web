@@ -414,7 +414,11 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table>
+                            
+
+
+                            <h4>Event List</h4>
+                            <table class="table table-condensed" id="eventList">
                                 <thead>
                                     <tr>
                                         <th>Event Name</th>
@@ -424,22 +428,21 @@
                                 </thead>
                             </table>
 
+                        </br>
 
-                            // ADD EVENT
-                            h2 Add User
-                            #addUser
-                                fieldset
-                                    input#inputUserName(type='text', placeholder='Event Name')
-                                    input#inputUserEmail(type='text', placeholder='Comapany')
-                                    br
-                                    input#inputUserFullname(type='text', placeholder='Description')
-                                    input#inputUserAge(type='text', placeholder='Date')
-                                    br
-                                    input#inputUserLocation(type='text', placeholder='City')
-                                    input#inputUserGender(type='text', placeholder='State')
-                                    br
-                                    button#btnAddUser Add User
-                            // /ADD EVENT
+                            <h4>Add Event</h4>
+                            <form id="addEvent">
+                              <fieldset class="form-group" id="inputEventName">
+                                <label for="formGroupExampleInput">Event Title</label>
+                                <input type="text" class="form-control" id="inputEventName" placeholder="Submarine Wars">
+                              </fieldset>
+                              <fieldset class="form-group" id="inputEventDescription">
+                                <label for="formGroupExampleInput2">Description</label>
+                                <input type="text" class="form-control" id="inputEventDescription" placeholder="VR Conference">
+                              </fieldset>
+                              <button type="submit" class="btn btn-default" id="btnAddEvent">Submit</button>
+                            </form>
+
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -488,6 +491,7 @@
 
         <!-- Custom JS -->
     <script src="javascripts/dashboard.js"></script>
+    <script src="javascripts/global.js"></script>
 
     <!-- jQuery -->
     <script src="startbootstrap/bower_components/jquery/dist/jquery.min.js"></script>
