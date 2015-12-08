@@ -63,6 +63,7 @@ function populateEventTable() {
     // Empty content string
     var tableContent = '';
 
+    console.log('getting events')
     // jQuery AJAX call for JSON
     $.getJSON( '/events/eventlist', function( data ) {
 
@@ -284,6 +285,7 @@ function deleteEvent(event) {
     if (confirmation === true) {
 
         // If they did, do our delete
+        console.log('/events/deleteevent/' + $(this).attr('rel'))
         $.ajax({
             type: 'DELETE',
             url: '/events/deleteevent/' + $(this).attr('rel')
@@ -291,6 +293,7 @@ function deleteEvent(event) {
 
             // Check for a successful (blank) response
             if (response.msg === '') {
+                console.log(response)
             }
             else {
                 alert('Error: ' + response.msg);
@@ -298,7 +301,6 @@ function deleteEvent(event) {
 
             // Update the table
             populateEventTable();
-
         });
 
     }

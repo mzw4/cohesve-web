@@ -7,10 +7,24 @@ var bodyParser = require('body-parser');
 
 // Database
 var mongo = require('mongodb');
-var monk = require('monk');
+var mongoose = require('mongoose');
+// var monk = require('monk');
 // var credentials = require('./credentials');
-var db = monk('mongodb://test:test@ds031882.mongolab.com:31882/heroku_5cgt3nbr')
 
+// Connect to mongoose
+exports.uri = "mongodb://test:test@ds031882.mongolab.com:31882/heroku_5cgt3nbr"
+mongoose.connect(exports.uri);
+//var db = monk(credentials.uri);
+// var remote_uri = credentials.uri;
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+  console.log('Connected to mongodb')
+});
+
+// Register the event schema
+var Event = mongoose.model('Event', { eventName: String, description: String });
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

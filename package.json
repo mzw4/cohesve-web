@@ -11,11 +11,10 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "~1.11.0",
+    "mongodb": "^2.0.50",
+    "monk": "https://github.com/vccabral/monk.git",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0",
-    "mongodb": "~2.0.33",
-    "monk": "^1.0.1",
-    "monk": "https://github.com/vccabral/monk.git"
+    "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
