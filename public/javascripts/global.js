@@ -227,7 +227,7 @@ function showEventInfo(event) {
 // Add User
 function addEvent2(event) {
     event.preventDefault();
-
+    console.log('test log')
     // Super basic validation - increase errorCount variable if any fields are blank
     var errorCount = 0;
     $('#addEvent input').each(function(index, val) {
