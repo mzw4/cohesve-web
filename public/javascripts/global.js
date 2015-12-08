@@ -242,7 +242,6 @@ function addEvent2(event) {
             'eventName': $('#inputEventName').val(),
             'description': $('#inputEventDescription').val(),
         };
-
         // Use AJAX to post the object to our adduser service
         $.ajax({
             type: 'POST',

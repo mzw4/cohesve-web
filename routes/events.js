@@ -18,6 +18,7 @@ router.get('/eventlist', function(req, res) {
 router.post('/addevent', function(req, res) {
     var db = req.db;
     var collection = db.get('eventlist');
+    
     collection.insert(req.body, function(err, result){
         res.send(
             (err === null) ? { msg: '' } : { msg: err }
